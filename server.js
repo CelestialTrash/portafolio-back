@@ -1,4 +1,3 @@
-// backend/server.js
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
@@ -15,7 +14,15 @@ connectDB();
 
 const app = express();
 
-app.use(cors());
+// Configurar CORS para permitir solicitudes desde el frontend desplegado
+app.use(
+    cors({
+        origin: 'https://aquiles-hinestrosa.netlify.app', // URL del frontend
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        credentials: true,
+    })
+);
+
 app.use(express.json());
 app.use(morgan('dev'));
 

@@ -17,8 +17,9 @@ const app = express();
 // Configurar CORS para permitir solicitudes desde el frontend desplegado
 app.use(
     cors({
-        origin: 'https://aquiles-hinestrosa.netlify.app', // URL del frontend
-        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        origin: 'https://aquiles-hinestrosa.netlify.app', // Cambia por tu dominio del frontend
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+        allowedHeaders: ['Content-Type', 'Authorization'],
         credentials: true,
     })
 );
